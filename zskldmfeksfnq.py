@@ -6,5 +6,14 @@ def open_rocket_league_tracker():
     webbrowser.open(url)
 
 while True:
+    # Open the website
     open_rocket_league_tracker()
-    time.sleep(900)  # Sleep for 15 minutes (900 seconds)
+
+    # Keep it open for 2 minutes
+    time.sleep(120)  # 120 seconds = 2 minutes
+
+    # Close the website
+    webbrowser.open("about:blank")  # Opens a blank page, effectively closing the previous page
+
+    # Wait for 15 minutes before repeating
+    time.sleep(900)  # 900 seconds = 15 minutes
