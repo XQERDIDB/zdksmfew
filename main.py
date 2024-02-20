@@ -21,3 +21,6 @@ while True:
   print("10 minutes passed")
   counter += 1
   print(f"Total tabs opened: {counter}")
+
+if __name__ == '__main__':
+    main()
