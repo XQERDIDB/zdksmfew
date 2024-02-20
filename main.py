@@ -1,26 +1,23 @@
-import webbrowser
 import time
+import webbrowser
 
 # Initialize a counter
 counter = 0
 
-def open_rocket_league_tracker():
-    global counter
-    url = "https://rocketleague.tracker.network/rocket-league/profile/steam/7656119922990327320/overview"
-    webbrowser.open(url)
-    counter += 1
+# Open the website initially
+url = "https://rocketleague.tracker.network/rocket-league/profile/steam/7656119922990327320/overview"
+webbrowser.open(url)
+print('Opened')
 
 while True:
-    # Open the website
-    open_rocket_league_tracker()
+  # Keep it open for 5 minutes
+  time.sleep(300)  # 300 seconds = 5 minutes
 
-    # Keep it open for 2 minutes
-    time.sleep(300)  # 120 seconds = 2 minutes
-
-    # Close the website
-    webbrowser.open("about:blank")  # Opens a blank page, effectively closing the previous page
-
-    # Wait for 15 minutes before repeating
-    time.sleep(600)  # 900 seconds = 15 minutes
-
-print(f"The website was opened and closed {counter} times.")
+  # Refresh the page (equivalent to closing and reopening)
+  webbrowser.open(url)
+  print("New tab opened")
+  # Wait for 10 minutes before repeating
+  time.sleep(600)  # 900 seconds = 10 minutes
+  print("10 minutes passed")
+  counter += 1
+  print(f"Total tabs opened: {counter}")
