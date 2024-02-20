@@ -15,12 +15,12 @@ while True:
     open_rocket_league_tracker()
 
     # Keep it open for 2 minutes
-    time.sleep(120)  # 120 seconds = 2 minutes
+    time.sleep(300)  # 120 seconds = 2 minutes
 
     # Close the website
     webbrowser.open("about:blank")  # Opens a blank page, effectively closing the previous page
 
     # Wait for 15 minutes before repeating
-    time.sleep(900)  # 900 seconds = 15 minutes
+    time.sleep(600)  # 900 seconds = 15 minutes
 
 print(f"The website was opened and closed {counter} times.")
