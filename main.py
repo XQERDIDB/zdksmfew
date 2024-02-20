@@ -1,26 +1,25 @@
-import time
 import webbrowser
+from threading import Timer
+from flask import Flask
 
-# Initialize a counter
-counter = 0
+app = Flask(__name__)
 
-# Open the website initially
-url = "https://rocketleague.tracker.network/rocket-league/profile/steam/7656119922990327320/overview"
-webbrowser.open(url)
-print('Opened')
+# Your original code
+def open_website():
+    url = "https://rocketleague.tracker.network/rocket-league/profile/steam/7656119922990327320/overview"
+    webbrowser.open(url)
+    print("Opened")
 
-while True:
-  # Keep it open for 5 minutes
-  time.sleep(300)  # 300 seconds = 5 minutes
+# Route for the Flask app
+@app.route("/")
+def hello():
+    return "Hello World!"
 
-  # Refresh the page (equivalent to closing and reopening)
-  webbrowser.open(url)
-  print("New tab opened")
-  # Wait for 10 minutes before repeating
-  time.sleep(600)  # 900 seconds = 10 minutes
-  print("10 minutes passed")
-  counter += 1
-  print(f"Total tabs opened: {counter}")
+# Timer to open the website after 1 second
+def open_browser():
+    Timer(1, open_website).start()
 
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    # Start the Flask app
+    Timer(1, open_browser).start()
+    app.run(port=2000)
